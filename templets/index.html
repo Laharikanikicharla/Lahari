@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='weather.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <script src="{{ url_for('static', filename='weather.js') }}" defer></script>
+</head>
+<body>
+    <div class="app-shell">
+        <main id="weather_report_container">
+            <div class="app-title">Weather Application</div>
+            <div id="search_input_container">
+                <input type="text" id="search_inputbox" placeholder="Search any city (e.g. Rajahmundry, Rajanagaram)" autocomplete="off">
+                <button id="search_icon_container" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div id="city_suggestions"></div>
+            </div>
+            <div id="error_message"></div>
+
+            <div class="content-grid">
+                <section id="weather_card">
+                    <div id="city_informations_container">
+                        <span id="location_icon_container"><i class="fa-solid fa-location-dot"></i></span>
+                        <div>
+                            <h1 id="city_name">Search for a city</h1>
+                            <p id="country_name"></p>
+                        </div>
+                    </div>
+                    <div id="weather_image_temperature_container">
+                        <span id="weather_image_container"><img src="" alt="Weather" id="weather_image"></span>
+                        <h2 id="weather_status_name"></h2>
+                        <h1 id="weather_temperature_value">--<span>°C</span></h1>
+                    </div>
+                    <div id="humidity_wind_report_container">
+                        <div class="humidity_wind_report_containers">
+                            <span class="humidity_wind_icons"><i class="fa-solid fa-droplet"></i></span>
+                            <h3>Humidity</h3>
+                            <h2 id="humidity_status_value">--</h2>
+                        </div>
+                        <div class="humidity_wind_report_containers">
+                            <span class="humidity_wind_icons"><i class="fa-solid fa-wind"></i></span>
+                            <h3>Wind Speed</h3>
+                            <h2 id="wind_speed_value">--</h2>
+                        </div>
+                    </div>
+                </section>
+
+                <aside id="history_panel">
+                    <div class="history-heading">
+                        <h2><i class="fa-solid fa-clock-rotate-left"></i> Search History</h2>
+                        <button id="clear_history">Clear</button>
+                    </div>
+                    <div id="history_list">
+                        <p class="empty-history">No searches yet.</p>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
